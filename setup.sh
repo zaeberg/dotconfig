@@ -16,6 +16,8 @@ setup_app() {
 setup_app tools
 setup_app zsh
 setup_app alacritty
+setup_app nvim
+setup_app karabiner
 
-# nvim
-# karabiner
+setup_app frontend
+

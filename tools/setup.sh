@@ -9,21 +9,7 @@ fi
 
 action="install python3"
 if ! check_dependency python3 && confirm "$action"; then
-  if confirm "$action"; then
-    brew install python
-  else
-    echo "Failed to $action"
-  fi
-fi
-
-action="install node and npm"
-if ! check_dependency node && confirm "$action"; then
-  brew install node
-fi
-
-action="install yarn"
-if ! check_dependency yarn && confirm "$action"; then
-  npm install --global yarn
+  brew install python
 fi
 
 # change cd for memo most frequently destination and jump

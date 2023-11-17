@@ -1,0 +1,15 @@
+-- Просто меняет цвета на нужные мне
+-- Идиотский хак потому что почему-то плагин themer не ремапит цвета
+vim.cmd([[ highlight clear FoldColumn ]])
+vim.cmd([[ highlight NormalFloat guibg=#1e1e2e ]])
+vim.cmd([[ highlight SpellBad guifg=#f38ba8 ]])
+vim.cmd([[ highlight SpellCap guifg=#f38ba8 ]])
+vim.cmd([[ highlight SpellLocal guifg=#f38ba8 ]])
+vim.cmd([[ highlight SpellRare guifg=#f38ba8 ]])
+vim.cmd([[ highlight CmpItemMenu guifg=#585b70 ]])
+vim.cmd([[ highlight Pmenu guibg=#313244 ]])
+vim.cmd([[ highlight WinBar guibg=#1e1e2e ]])
+vim.cmd([[ highlight WinBarNC guibg=#1e1e2e ]])
+vim.cmd([[ highlight WinBarModified guibg=#1e1e2e guifg=#f9e2af ]])
+vim.cmd([[ highlight NavicIconsFileNC guibg=#1e1e2e guifg=#f2cdcd ]])
+vim.cmd([[ highlight @parameter guifg=#f2cdcd ]])
