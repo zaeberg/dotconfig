@@ -14,6 +14,7 @@ setup_app() {
 }
 
 setup_app tools
+setup_app git
 setup_app frontend
 setup_app zsh
 setup_app alacritty

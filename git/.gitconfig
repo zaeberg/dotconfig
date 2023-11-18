@@ -1,0 +1,10 @@
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore.global
+[user]
+  name = 
+  email = 
+
+; Для рабочих репозиториев
+; [includeIf "gitdir:~/path/to/working_repo/"]
+;    path = ~/path/to/.gitconfig.work
