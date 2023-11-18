@@ -21,5 +21,4 @@ setup_app nvim
 setup_app lazygit
 setup_app karabiner
 
-# ghq
 # tmux

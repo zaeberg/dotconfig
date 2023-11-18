@@ -61,4 +61,9 @@ if ! check_dependency neofetch && confirm "$action"; then
   brew install neofetch
 fi
 
-
+# Manage remote repository clones
+# https://github.com/x-motemen/ghq
+action="install ghq"
+if ! check_dependency ghq && confirm "$action"; then
+  brew install ghq
+fi
