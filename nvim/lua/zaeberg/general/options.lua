@@ -114,17 +114,17 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- Enable spellcheck conditionally based on filetypes
--- vim.api.nvim_create_autocmd("BufEnter", {
---   desc = "Enable spellcheck",
---   group = vim.api.nvim_create_augroup("SpellCheck", {}),
---   callback = function()
---     local ft = vim.bo.filetype
---     local enabled_filetypes = { "markdown", "text", "" }
---     if vim.tbl_contains(enabled_filetypes, ft) or vim.fn.empty(vim.bo.filetype) ~= 0 then
---       vim.opt_local.spell = true
---     end
---   end,
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  desc = "Enable spellcheck",
+  group = vim.api.nvim_create_augroup("SpellCheck", {}),
+  callback = function()
+    local ft = vim.bo.filetype
+    local enabled_filetypes = { "markdown", "text", "" }
+    if vim.tbl_contains(enabled_filetypes, ft) or vim.fn.empty(vim.bo.filetype) ~= 0 then
+      vim.opt_local.spell = true
+    end
+  end,
+})
 
 -- Filetype foldlevelstart override
 if default_folds then

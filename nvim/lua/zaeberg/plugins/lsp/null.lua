@@ -68,7 +68,7 @@ function M.diagnostic_sources()
         return utils.root_has_file({ "selene.toml" })
       end,
     }),
-    diagnostics.shellcheck, -- sh
+    -- diagnostics.shellcheck, -- sh
     -- default
     diagnostics.editorconfig_checker.with({
       condition = function(utils)
