@@ -14,10 +14,12 @@ setup_app() {
 }
 
 setup_app tools
+setup_app frontend
 setup_app zsh
 setup_app alacritty
 setup_app nvim
+setup_app lazygit
 setup_app karabiner
 
-setup_app frontend
-
+# ghq
+# tmux
