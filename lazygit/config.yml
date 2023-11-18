@@ -1,0 +1,34 @@
+keybinding:
+  universal:
+    openRecentRepos: "<c-y>"
+    createPatchOptionsMenu: "<c-t>"
+
+customCommands:
+  - key: "Z"
+    context: "files"
+    command: "git cz"
+    description: "commit with commitizen"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
+  - key: "<c-p>"
+    context: "global"
+    command: "git push --force"
+    description: "git force push"
+    loadingText: "push (force, without --force-with-lease)"
+    prompts:
+      - type: "confirm"
+        title: "Confirm:"
+        body: "Are you sure you want to force push to {{.CheckedOutBranch.Name}}?"
+  - key: "<c-r>"
+    context: "localBranches"
+    command: "{{index .PromptResponses 0}} {{.SelectedLocalBranch.Name}}"
+    description: "git rebase (onto checked-out branch)"
+    loadingText: "rebasing"
+    prompts:
+      - type: "menu"
+        title: "Rebase '{{.SelectedLocalBranch.Name}}' onto '{{.CheckedOutBranch.Name}}'"
+        options:
+          - name: "simple rebase"
+            value: "git rebase"
+          - name: "interactive rebase"
+            value: "git rebase --interactive"
