@@ -67,3 +67,9 @@ action="install ghq"
 if ! check_dependency ghq && confirm "$action"; then
   brew install ghq
 fi
+
+# Cheatsheet for console commands
+action="install tldr"
+if ! check_dependency tlcr && confirm "$action"; then
+  brew install tlrc
+fi
