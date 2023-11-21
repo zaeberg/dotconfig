@@ -176,11 +176,16 @@ end
 
 function M.eslint_d()
   -- local eslint_config = require("lspconfig.server_configurations.eslint")
-  return {
-    -- uncomment for yarn 2/pnp project support
-    -- https://github.com/williamboman/nvim-lsp-installer/tree/main/lua/nvim-lsp-installer/servers/eslint
-    -- cmd = { "yarn", "exec", unpack(eslint_config.default_config.cmd) },
-  }
+  -- return {
+  --   -- uncomment for yarn 2/pnp project support
+  --   -- https://github.com/williamboman/nvim-lsp-installer/tree/main/lua/nvim-lsp-installer/servers/eslint
+  --   -- cmd = { "yarn", "exec", unpack(eslint_config.default_config.cmd) },
+  -- }
+  return {}
+end
+
+function M.prettier()
+  return {}
 end
 
 return setmetatable(M, {

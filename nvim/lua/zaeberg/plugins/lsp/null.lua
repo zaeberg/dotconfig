@@ -10,11 +10,9 @@ M.ensure_installed = {
   "html-lsp",
   "typescript-language-server",
   "eslint_d",
-  "prettier",
 
-  -- c/cpp stuff
-  "clangd",
-  "clang-format",
+  -- other
+  "shellcheck",
 }
 
 -- Use null-ls formatting if any of the given filetypes is supported
@@ -41,7 +39,7 @@ function M.formatting_sources()
     formatting.eslint_d.with({
       extra_args = function(params)
         local path = vim.fn.getcwd()
-        local eslint_config = require("zaeberg.utils").get_tochka_eslint_config(path)
+        local eslint_config = require("zaeberg.utils").get_eslint_config(path)
         return params.options and { "--config", eslint_config }
       end,
     }),
@@ -56,7 +54,7 @@ function M.diagnostic_sources()
     diagnostics.eslint_d.with({
       extra_args = function(params)
         local path = vim.fn.getcwd()
-        local eslint_config = require("zaeberg.utils").get_tochka_eslint_config(path)
+        local eslint_config = require("zaeberg.utils").get_eslint_config(path)
         return params.options and { "--config", eslint_config }
       end,
     }),
@@ -68,13 +66,13 @@ function M.diagnostic_sources()
         return utils.root_has_file({ "selene.toml" })
       end,
     }),
-    -- diagnostics.shellcheck, -- sh
+    diagnostics.shellcheck, -- sh
     -- default
-    diagnostics.editorconfig_checker.with({
-      condition = function(utils)
-        return utils.root_has_file({ ".editorconfig" })
-      end,
-    }),
+    -- diagnostics.editorconfig_checker.with({
+    --   condition = function(utils)
+    --     return utils.root_has_file({ ".editorconfig" })
+    --   end,
+    -- }),
   }
 end
 

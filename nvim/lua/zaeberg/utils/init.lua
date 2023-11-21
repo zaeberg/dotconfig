@@ -133,7 +133,7 @@ function M.toggle_diagnostics()
   end
 end
 
-function M.get_tochka_eslint_config(root_dir)
+function M.get_eslint_config(root_dir)
   local eslint_config_path = vim.fn.expand(root_dir .. "/.eslintrc.prettier.json")
   local global_eslint_config_path = ""
 
