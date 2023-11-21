@@ -31,7 +31,7 @@ plugins=(
   git
   zoxide
   npm
-  # nvm
+  nvm
   pyenv
   bazel
   terraform
