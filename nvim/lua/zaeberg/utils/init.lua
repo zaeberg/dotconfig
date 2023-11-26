@@ -133,15 +133,4 @@ function M.toggle_diagnostics()
   end
 end
 
-function M.get_eslint_config(root_dir)
-  local eslint_config_path = vim.fn.expand(root_dir .. "/.eslintrc.prettier.json")
-  local global_eslint_config_path = ""
-
-  if vim.fn.filereadable(eslint_config_path) == 1 then
-    return eslint_config_path
-  else
-    return global_eslint_config_path
-  end
-end
-
 return M

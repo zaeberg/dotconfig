@@ -35,12 +35,10 @@ function M.formatting_sources()
     formatting.stylua, -- lua
 
     -- Typescript
-    -- NOTE: смотрит путь до eslint конифга в проекте, если нет берет глобальный
     formatting.eslint_d.with({
-      extra_args = function(params)
-        local path = vim.fn.getcwd()
-        local eslint_config = require("zaeberg.utils").get_eslint_config(path)
-        return params.options and { "--config", eslint_config }
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.json") },
+      condition = function(utils)
+        return utils.root_has_file({ ".eslintrc.json" })
       end,
     }),
   }
@@ -52,10 +50,9 @@ function M.diagnostic_sources()
   return {
     -- Typescript
     diagnostics.eslint_d.with({
-      extra_args = function(params)
-        local path = vim.fn.getcwd()
-        local eslint_config = require("zaeberg.utils").get_eslint_config(path)
-        return params.options and { "--config", eslint_config }
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.json") },
+      condition = function(utils)
+        return utils.root_has_file({ ".eslintrc.json" })
       end,
     }),
 
@@ -81,7 +78,14 @@ function M.code_action_sources()
   local code_actions = null_ls.builtins.code_actions
 
   return {
-    code_actions.eslint_d,
+    -- Typescript
+    code_actions.eslint_d.with({
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.json") },
+      condition = function(utils)
+        return utils.root_has_file({ ".eslintrc.json" })
+      end,
+    }),
+
     code_actions.shellcheck, -- sh
     code_actions.gitsigns,
     -- code_actions.refactoring,
