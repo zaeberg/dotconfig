@@ -19,7 +19,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 ### TMUX AUTOSTART ###
 sauce "$HOME/dotconfig/tmux/scripts/aliases.sh"
 sauce "$HOME/dotconfig/tmux/scripts/autostart.sh"
-_tmux_autostart
+# _tmux_autostart
 
 ### OH-MY-ZSH ###
 export ZSH="$HOME/.oh-my-zsh"
@@ -126,3 +126,6 @@ sauce "$HOME/.nix-profile/etc/profile.d/nix.sh"
 # sauce /usr/share/nvm/init-nvm.sh --no-use
 # TODO: add default node to path https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
 # nvm alias default node > /dev/null
+
+# specific
+export LEDGER_FILE="$HOME/Documents/hledger/transactions.ledger"
