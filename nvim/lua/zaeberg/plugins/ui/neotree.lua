@@ -7,7 +7,7 @@ local M = {}
 
 M.cmd = "Neotree"
 
-M.keys = { { ";", "<Cmd>Neotree toggle<CR>", { desc = "File explorer" } } }
+M.keys = { { ";", "<Cmd>Neotree toggle reveal<CR>", { desc = "File explorer" } } }
 
 --[[ NOTE: slow startup + hijack if opening to a directory
 function M.init()
