@@ -1,29 +1,42 @@
+window:
+  decorations: none
+
+  padding:
+    x: 7
+    y: 0
+
+
 font:
   size: 18.0
+
   normal:
     family: JetBrainsMono Nerd Font Mono
     style: Regular
+
   bold:
     family: JetBrainsMono Nerd Font Mono
     style: Bold
+
   italic:
     family: JetBrainsMono Nerd Font Mono
     style: Italic
+
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
 
-window:
-  column: 80
-  lines: 300
-  opacity: 1.0
-  option_as_alt: OnlyLeft
 
 key_bindings:
-  # linux
-  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
-  - { key: Return, mods: Control, action: SpawnNewInstance }
   # macOS
-  - { key: T, mods: Command, action: CreateNewWindow }
   - { key: N, mods: Command, action: SpawnNewInstance }
-  - { key: F, mods: Command|Shift, action: ToggleFullScreen }
+  # shortcuts for tmux. the leader key is control-b (0x02)
+  - { key: W,        mods: Command,       chars: "\x02&"                       }  # close tab (kill)
+  - { key: T,        mods: Command,       chars: "\x02c"                       }  # new tab
+  - { key: RBracket, mods: Command|Shift, chars: "\x02n"                       }  # select next tab
+  - { key: LBracket, mods: Command|Shift, chars: "\x02p"                       }  # select previous tab
+  - { key: RBracket, mods: Command,       chars: "\x02o"                       }  # select next pane
+  - { key: LBracket, mods: Command,       chars: "\x02;"                       }  # select last (previously used) pane
+  - { key: F,        mods: Command,       chars: "\x02/"                       }  # search (upwards) (see tmux.conf)
+  - { key: F,        mods: Alt,           chars: "\x1bf"                       }
+  - { key: B,        mods: Alt,           chars: "\x1bb"                       }
+  - { key: W,        mods: Alt,           chars: "\x1bw"                       }

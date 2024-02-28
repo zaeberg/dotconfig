@@ -10,6 +10,7 @@ M.ensure_installed = {
   "html-lsp",
   "typescript-language-server",
   "eslint_d",
+  "prettier",
 
   -- other
   "shellcheck",
@@ -34,13 +35,21 @@ function M.formatting_sources()
     -- NOTE: sumneko_lua has builtin EmmyLuaCodeStyle support
     formatting.stylua, -- lua
 
-    -- Typescript
-    formatting.eslint_d.with({
-      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.json") },
-      condition = function(utils)
-        return utils.root_has_file({ ".eslintrc.json" })
-      end,
-    }),
+    -- Prettier in eslint
+    -- formatting.eslint_d.with({
+    --   extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.prettier.json") },
+    --   condition = function(utils)
+    --     return utils.root_has_file({ "/.eslintrc.prettier.json" })
+    --   end,
+    -- }),
+
+    -- Plain eslint
+    -- formatting.eslint_d.with({
+    --   extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.prettier.js") },
+    --   condition = function(utils)
+    --     return utils.root_has_file({ "/.eslintrc.prettier.js" })
+    --   end,
+    -- }),
   }
 end
 
@@ -50,9 +59,17 @@ function M.diagnostic_sources()
   return {
     -- Typescript
     diagnostics.eslint_d.with({
-      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.json") },
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.prettier.json") },
       condition = function(utils)
-        return utils.root_has_file({ ".eslintrc.json" })
+        return utils.root_has_file({ "/.eslintrc.prettier.json" })
+      end,
+    }),
+
+    -- Plain eslint
+    diagnostics.eslint_d.with({
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.js") },
+      condition = function(utils)
+        return utils.root_has_file({ "/.eslintrc.js" })
       end,
     }),
 
@@ -64,12 +81,6 @@ function M.diagnostic_sources()
       end,
     }),
     diagnostics.shellcheck, -- sh
-    -- default
-    -- diagnostics.editorconfig_checker.with({
-    --   condition = function(utils)
-    --     return utils.root_has_file({ ".editorconfig" })
-    --   end,
-    -- }),
   }
 end
 
@@ -80,16 +91,24 @@ function M.code_action_sources()
   return {
     -- Typescript
     code_actions.eslint_d.with({
-      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.json") },
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.prettier.json") },
       condition = function(utils)
-        return utils.root_has_file({ ".eslintrc.json" })
+        return utils.root_has_file({ "/.eslintrc.prettier.json" })
+      end,
+    }),
+
+    -- Plain eslint
+    code_actions.eslint_d.with({
+      extra_args = { "--config", vim.fn.expand(vim.fn.getcwd() .. "/.eslintrc.js") },
+      condition = function(utils)
+        return utils.root_has_file({ "/.eslintrc.js" })
       end,
     }),
 
     code_actions.shellcheck, -- sh
     code_actions.gitsigns,
     -- code_actions.refactoring,
-    -- code_actions.ts_node_action,
+    code_actions.ts_node_action,
   }
 end
 

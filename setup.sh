@@ -21,5 +21,9 @@ setup_app alacritty
 setup_app nvim
 setup_app lazygit
 setup_app karabiner
+setup_app tmux
 
 # tmux
+# lazydocker
+# contexts
+# tomito

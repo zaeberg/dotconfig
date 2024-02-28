@@ -4,7 +4,7 @@ local M = {}
 
 M.dev_mode = false
 M.nvchad_theme = false
-M.copilot_enabled = false
+M.copilot_enabled = true
 M.default_folds = false
 
 -- Icons

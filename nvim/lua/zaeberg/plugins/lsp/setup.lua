@@ -13,7 +13,7 @@ M.ensure_installed = {
   -- "dockerfile-language-server",
   "tsserver",
   -- "emmet-ls",
-  "json-lsp",
+  -- "json-lsp",
   "eslint_d",
   -- "css-lsp",
   -- "html-lsp",

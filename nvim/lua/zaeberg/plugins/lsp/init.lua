@@ -14,7 +14,7 @@ local spec = {
     settings = "install",
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     settings = "null",
   },
