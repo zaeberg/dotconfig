@@ -1,2 +1,2 @@
-vim.loader.enable()
-require("zaeberg")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
