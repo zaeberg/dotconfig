@@ -26,6 +26,9 @@ export ZSH="$HOME/.oh-my-zsh"
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 13
 
+### Added zellij
+pathadd "$HOME/zellij/"
+
 ENABLE_CORRECTION="true"
 plugins=(
   git
@@ -42,6 +45,7 @@ plugins=(
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting # NOTE: this has to be the last plugin
+  zellij
 )
 fpath+="$ZSH/custom/plugins/zsh-completions/src"
 
