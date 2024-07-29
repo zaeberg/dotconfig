@@ -3,7 +3,14 @@ source "$HOME/dotconfig/setup-utils.sh"
 
 action="install lazygit"
 if ! check_dependency lazygit && confirm "$action"; then
-  brew install lazygit
+  if is_linux; then
+    sudo apt update
+    sudo apt install lazygit
+  elif is_mac; then
+    brew install lazygit
+  else
+    echo "Failed to $action: unsupported OS"
+  fi
 fi
 
 action="install commitizen"
@@ -18,5 +25,11 @@ fi
 
 action="link lazygit config"
 if confirm "$action"; then
-  link_config "$HOME/dotconfig/lazygit/config.yml" "$HOME/Library/Application Support/lazygit/config.yml"
+  if is_linux; then
+    link_config "$HOME/dotconfig/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+  elif is_mac; then
+    link_config "$HOME/dotconfig/lazygit/config.yml" "$HOME/Library/Application Support/lazygit/config.yml"
+  else
+    echo "Failed to $action: unsupported OS"
+  fi
 fi

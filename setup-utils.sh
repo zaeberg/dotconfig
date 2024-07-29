@@ -1,6 +1,22 @@
 #!/bin/bash
-export OS_PYTHON="python3"
-export OS_PIP="pip3"
+is_linux() {
+  # TODO: further filter by distro
+  # [[ "$OSTYPE" == "linux-gnu"* ]]
+  [[ "$(uname)" == "Linux" ]]
+}
+
+is_mac() {
+  # [[ "$OSTYPE" == "darwin"* ]]
+  [[ "$(uname)" == "Darwin" ]]
+}
+
+if is_mac; then
+  export OS_PYTHON="python3"
+  export OS_PIP="pip3"
+else
+  export OS_PYTHON="python3"
+  export OS_PIP="pip3"
+fi
 
 confirm() {
   action=$1
@@ -16,7 +32,7 @@ confirm() {
 }
 
 check_dependency() {
-  command -v "$1" > /dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 backup_dst_config() {
