@@ -16,5 +16,5 @@ fi
 
 action="install yarn"
 if ! check_dependency yarn && confirm "$action"; then
-  npm install --global yarn
+  sudo npm install --global yarn
 fi

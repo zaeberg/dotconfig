@@ -4,8 +4,7 @@ source "$HOME/dotconfig/setup-utils.sh"
 action="install zellij"
 if ! check_dependency zellij && confirm "$action"; then
   if is_linux; then
-    sudo apt update
-    sudo apt install zewllij
+    sudo snap install zellij --classic
   elif is_mac; then
     brew install zellij
   else

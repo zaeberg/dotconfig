@@ -19,6 +19,17 @@ if ! check_dependency python3 && confirm "$action"; then
   fi
 fi
 
+action="install go"
+if ! check_dependency go && confirm "$action"; then
+  if is_linux; then
+    snap install go --classic
+  elif is_mac && confirm "$action"; then
+    brew install go
+  else
+    echo "Failed to $action: unsupported OS"
+  fi
+fi
+
 # change cd for memo most frequently destination and jump
 # https://github.com/ajeetdsouza/zoxide
 action="install zoxide"
@@ -122,8 +133,7 @@ fi
 action="install ghq"
 if ! check_dependency ghq && confirm "$action"; then
   if is_linux; then
-    sudo apt update
-    sudo apt install ghq
+    echo "skip"
   elif is_mac; then
     brew install ghq
   else
@@ -135,8 +145,7 @@ fi
 action="install tldr"
 if ! check_dependency tlrc && confirm "$action"; then
   if is_linux; then
-    sudo apt update
-    sudo apt install tlrc
+    sudo snap install tldr
   elif is_mac; then
     brew install tlrc
   else
