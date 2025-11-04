@@ -122,6 +122,7 @@ function lf() {
 
 ### Start Services ###
 neofetch
+eval "$(starship init zsh)"
 
 sauce "$HOME/.ghcup/env"
 sauce "$HOME/.nix-profile/etc/profile.d/nix.sh"
@@ -130,6 +131,10 @@ sauce "$HOME/.nix-profile/etc/profile.d/nix.sh"
 # sauce /usr/share/nvm/init-nvm.sh --no-use
 # TODO: add default node to path https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
 # nvm alias default node > /dev/null
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # specific
-export LEDGER_FILE="$HOME/Documents/hledger/transactions.ledger"
+export LEDGER_FILE="$HOME/ghq/github.com/zaeberg/hledger/transactions.ledger"
+export COREPACK_ENABLE_AUTO_PIN=0
