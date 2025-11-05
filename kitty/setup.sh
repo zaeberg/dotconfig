@@ -16,8 +16,3 @@ action="link config"
 if confirm "$action"; then
   link_config $HOME/dotconfig/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 fi
-
-action="copy bg for theme"
-if confirm "$action"; then
-  link_config $HOME/dotconfig/kitty/bg-blurred-darker.png $HOME/.config/kitty/bg-blurred-darker.png false true
-fi
